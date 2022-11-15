@@ -13,7 +13,8 @@ from utils import Contracts, Employees,Shifts
 
 from utils import getFixAssignments, getRequests, getCoverRequirementsDict
 
-shiftSchedulingDataPath = Path('D:\AppliedMathModel\Data\Instance13.ros')
+instancePath = sys.argv[1]
+shiftSchedulingDataPath = Path(instancePath)
 shiftSchedulingData = ET.parse(shiftSchedulingDataPath).getroot()
 
 # Get total day of schedule
