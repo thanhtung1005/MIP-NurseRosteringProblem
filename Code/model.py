@@ -6,7 +6,6 @@ from itertools import product
 from pathlib import Path
 
 import gurobipy as gp
-import numpy as np
 
 from gurobipy import GRB
 from utils import Contracts, Employees,Shifts

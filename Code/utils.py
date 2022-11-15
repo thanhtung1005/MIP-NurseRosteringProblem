@@ -56,6 +56,7 @@ class Employees:
     def __init__(self, employeesTree: ET.Element) -> None:
         self.ids = getTreeAttribute(attrib='ID', tree=employeesTree)
 
+
 class Shifts:
 
     def __init__(self, shiftTree: ET.Element, minRestTime: int) -> None:
