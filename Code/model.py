@@ -16,7 +16,6 @@ instancePath = sys.argv[1]
 shiftSchedulingDataPath = Path(instancePath)
 shiftSchedulingData = ET.parse(shiftSchedulingDataPath).getroot()
 
-# Get total day of schedule
 startDayNode = 0
 endDayNode = 1
 shiftTypesNode = 2
@@ -50,6 +49,7 @@ employees = Employees(employeesTree=employeesTree)
 model = gp.Model('EmployeeTimetabling')
 model.setParam('DisplayInterval', 500)
 model.setParam('Method', 1)
+model.setParam('TimeLimit', 3600)
 
 numberOfEmployees = len(employees.ids)
 numberOfShifts = len(shifts.ids)
