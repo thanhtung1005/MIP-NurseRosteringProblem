@@ -73,12 +73,11 @@ class Shifts:
         self.shiftRotationList = []
         for i in range(len(self.ids)):
             totalTimeToNextShift = minRestTime + self.duration[i]
-            timeToStartNextShift = startTimeList[i] + timedelta(minutes=totalTimeToNextShift)
+            timeToStartNextShift = startTimeList[i] + timedelta(minutes=totalTimeToNextShift) - timedelta(days=1)
             shiftRotation = []
-            for j in range(i + 1):
-                if i != j:
-                    if timeToStartNextShift > startTimeList[j]:
-                        shiftRotation.append(j)
+            for j in range(len(self.ids)):
+                if timeToStartNextShift > startTimeList[j]:
+                    shiftRotation.append(j)
             self.shiftRotationList.append(shiftRotation)
 
 

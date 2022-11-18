@@ -49,7 +49,8 @@ employees = Employees(employeesTree=employeesTree)
 model = gp.Model('EmployeeTimetabling')
 model.setParam('DisplayInterval', 500)
 model.setParam('Method', 1)
-model.setParam('TimeLimit', 3600)
+model.setParam('TimeLimit', 1200)
+
 
 numberOfEmployees = len(employees.ids)
 numberOfShifts = len(shifts.ids)
@@ -101,7 +102,7 @@ for i, e in enumerate(employees.ids):
                 sum2 =  gp.quicksum(x[i, s, k] for s in range(numberOfShifts) for k in range(d + 2, d + value + 1))
                 leftHandSide = sum1 - sum2
                 rightHandSide = (value - 1) * gp.quicksum(x[i, s, d] for s in range(numberOfShifts))
-                model.addConstr(leftHandSide + value -1 >= rightHandSide)
+                model.addConstr(leftHandSide + value - 1 >= rightHandSide)
 
             for d in range(numberOfDays - value, numberOfDays - 1):
                 gap = numberOfDays - d - 1
